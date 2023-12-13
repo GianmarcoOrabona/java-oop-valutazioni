@@ -31,7 +31,7 @@ public class Corso {
     public void getStudentsList() {
         System.out.println("Lista studenti: ");
         for (Studente student : students) {
-            System.out.println("ID: " + student.getStudentId() + "\n" + "Assenze: " + student.getAbsencePercentage() + "\n" + "Media: " + student.getAverageGrades());
+            System.out.println(student.toString() + "\n");
         }
     }
 
@@ -50,6 +50,6 @@ public class Corso {
                 promoted++;
             }
         }
-        return BigDecimal.valueOf(promoted * 100).divide(BigDecimal.valueOf(students.size()), 2, RoundingMode.HALF_UP);
+        return BigDecimal.valueOf(promoted * 100).divide(BigDecimal.valueOf(students.size()), 0, RoundingMode.HALF_UP);
     }
 }

@@ -47,6 +47,8 @@ public class Studente {
 
     // METODI
 
+
+
     public boolean hasPassed() {
         if (absencePercentage > 50) {
             return false;
@@ -57,5 +59,13 @@ public class Studente {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "ID Studente: " + getStudentId() + "\n" +
+                "Assenze: " + getAbsencePercentage() + "%" + "\n" +
+                "Media: " + getAverageGrades() + "\n" +
+                (hasPassed() ? "Promosso" : "Bocciato");
     }
 }

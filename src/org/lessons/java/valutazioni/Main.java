@@ -2,21 +2,25 @@ package org.lessons.java.valutazioni;
 
 
 import java.math.BigDecimal;
-import java.util.Random;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Random random = new Random();
-        int numberOfStudents = random.nextInt(10, 21);
-        int numberOfAbsence = random.nextInt(0, 101);
-        BigDecimal average = new BigDecimal(random.nextInt(0, 6));
+public static int randomNumber(int min, int max){
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
+    }
 
+    public static void main(String[] args) {
         Corso corso = new Corso();
         int id = 0;
 
-        for (int i = 0; i < numberOfStudents; i++) {
-            Studente studente = new Studente(i, numberOfAbsence, average);
+        for (int i = 10; i <= 20; i++) {
+            id++;
+            Studente student = new Studente(id, randomNumber(0, 100), new BigDecimal(randomNumber(0, 5)));
+            corso.addStudent(student);
         }
+
+        corso.getStudentsList();
+        System.out.println("Percentuale studenti promossi: " + corso.promotedStudents() + "%");
     }
 }
