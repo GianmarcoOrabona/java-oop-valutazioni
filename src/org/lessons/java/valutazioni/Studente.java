@@ -46,4 +46,16 @@ public class Studente {
 
 
     // METODI
+
+    public String passedOrFailed() {
+        String outcome = "";
+        if (getAbsencePercentage() > 50) {
+            outcome = "Bocciato";
+        } else if (getAbsencePercentage() >= 25 && getAbsencePercentage() <= 50 && getAverageGrades().compareTo(new BigDecimal(2)) > 0) {
+            outcome = "Promosso";
+        } else if (getAbsencePercentage() < 25 && getAverageGrades().compareTo(new BigDecimal(2)) >= 0) {
+            outcome = "Promosso";
+        }
+        return outcome;
+    }
 }
