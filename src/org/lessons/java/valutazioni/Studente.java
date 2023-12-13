@@ -47,15 +47,15 @@ public class Studente {
 
     // METODI
 
-    public String passedOrFailed() {
-        String outcome = "";
-        if (getAbsencePercentage() > 50) {
-            outcome = "Bocciato";
-        } else if (getAbsencePercentage() >= 25 && getAbsencePercentage() <= 50 && getAverageGrades().compareTo(new BigDecimal(2)) > 0) {
-            outcome = "Promosso";
-        } else if (getAbsencePercentage() < 25 && getAverageGrades().compareTo(new BigDecimal(2)) >= 0) {
-            outcome = "Promosso";
+    public boolean hasPassed() {
+        if (absencePercentage > 50) {
+            return false;
+        } else if (absencePercentage > 25 && absencePercentage < 50 && averageGrades.compareTo(new BigDecimal("2")) > 0) {
+            return true;
+        } else if (absencePercentage < 25 && averageGrades.compareTo(new BigDecimal("2")) >= 0) {
+            return true;
+        } else {
+            return false;
         }
-        return outcome;
     }
 }
